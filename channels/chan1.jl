@@ -1,18 +1,24 @@
 using Printf
 using Logging
-io = open("log.txt", "w+")
-logger = SimpleLogger(io)
-global_logger(logger)
+#
+#io = open("log.txt", "w+")
+#logger = SimpleLogger(io)
+#global_logger(logger)
 
 
-# Given Channels source and sink,
-source = Channel(32)
-sink = Channel(32)
+
+struct WorkPkg
+	num::Int64
+end
 
 struct Ctrl
 	q::Channel{Bool}
 	t::Float64
 end
+
+# Given Channels source and sink,
+source = Channel{WorkPkg}(32)
+sink = Channel{WorkPkg}(32)
 
 # and a function `worker` which reads items from from source, processes the item read
 # and writes a result to sink,
@@ -27,7 +33,7 @@ function worker(n::Int64, done::Ctrl)
 	if isready(source)
         	data = take!(source)
 		#@info(@sprintf("sending %d to sink\n", data))
-        	put!(sink, data*2)    # write out result
+		put!(sink, WorkPkg(data.num*2))    # write out result
     	end
 
 	sleep(done.t)
@@ -59,13 +65,13 @@ end
 @info(@sprintf("filling pipe...\n"))
 for i = 1:num_jobs
 
-	put!(source, i)
+	put!(source, WorkPkg(i))
 end
 
 @info(@sprintf("draining  pipe...\n"))
 for i = 1:num_jobs
 	info = take!(sink)
-	@info(@sprintf("received: %d\n", info))
+	@info(@sprintf("received: %d\n", info.num))
 end
 
 @info(@sprintf("quiting..\n"))
@@ -97,4 +103,4 @@ for i in 1:num_workers
 	@info(@sprintf("worker %d quit, returned result: %d\n", i, ta[i].result))
 end
 
-close(io)
+#close(io)
