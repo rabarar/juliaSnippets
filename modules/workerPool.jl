@@ -1,4 +1,4 @@
-module WorkerPool
+module WorkPool
 
 using Printf
 using Logging

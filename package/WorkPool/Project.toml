@@ -1,0 +1,8 @@
+authors = ["Rob Baruch <robertbaruch@mac.com>"]
+name = "WorkPool"
+uuid = "0fe7e0d8-e511-11e8-3f66-5b3b11799783"
+version = "0.1.0"
+
+[deps]
+Printf
+Logging

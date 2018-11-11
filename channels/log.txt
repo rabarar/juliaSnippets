@@ -1,92 +1,26 @@
 ┌ Info: creating 10 tasks
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:49
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:54
 ┌ Info: filling pipe...
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:59
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:64
 ┌ Info: draining  pipe...
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:65
-┌ Info: worker[1] starting -> 3.000000 ms
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:20
-┌ Info: worker[2] starting -> 3.000000 ms
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:20
-┌ Info: worker[3] starting -> 4.000000 ms
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:20
-┌ Info: worker[4] starting -> 4.000000 ms
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:20
-┌ Info: worker[5] starting -> 3.000000 ms
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:20
-┌ Info: worker[6] starting -> 4.000000 ms
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:20
-┌ Info: worker[7] starting -> 2.000000 ms
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:20
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:70
+┌ Info: worker[1] starting -> 2.000000 ms
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:25
+┌ Info: worker[2] starting -> 0.000000 ms
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:25
+┌ Info: worker[3] starting -> 0.000000 ms
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:25
+┌ Info: worker[4] starting -> 0.000000 ms
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:25
+┌ Info: worker[5] starting -> 2.000000 ms
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:25
+┌ Info: worker[6] starting -> 1.000000 ms
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:25
+┌ Info: worker[7] starting -> 4.000000 ms
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:25
 ┌ Info: worker[8] starting -> 0.000000 ms
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:20
-┌ Info: worker[9] starting -> 3.000000 ms
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:20
-┌ Info: worker[10] starting -> 2.000000 ms
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:20
-┌ Info: received: 2
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:68
-┌ Info: received: 4
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:68
-┌ Info: received: 6
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:68
-┌ Info: received: 8
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:68
-┌ Info: received: 10
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:68
-┌ Info: received: 12
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:68
-┌ Info: received: 14
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:68
-┌ Info: received: 16
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:68
-┌ Info: received: 18
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:68
-┌ Info: received: 20
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:68
-┌ Info: quiting..
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:71
-┌ Info: signal worker 1 to quit
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:74
-┌ Info: signal worker 2 to quit
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:74
-┌ Info: signal worker 3 to quit
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:74
-┌ Info: signal worker 4 to quit
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:74
-┌ Info: signal worker 5 to quit
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:74
-┌ Info: signal worker 6 to quit
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:74
-┌ Info: signal worker 7 to quit
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:74
-┌ Info: signal worker 8 to quit
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:74
-┌ Info: signal worker 9 to quit
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:74
-┌ Info: signal worker 10 to quit
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:74
-┌ Info: waiting on done!
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:78
-┌ Info: done!
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:91
-┌ Info: worker 1 quit, returned result: 42
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:97
-┌ Info: worker 2 quit, returned result: 42
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:97
-┌ Info: worker 3 quit, returned result: 42
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:97
-┌ Info: worker 4 quit, returned result: 42
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:97
-┌ Info: worker 5 quit, returned result: 42
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:97
-┌ Info: worker 6 quit, returned result: 42
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:97
-┌ Info: worker 7 quit, returned result: 42
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:97
-┌ Info: worker 8 quit, returned result: 42
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:97
-┌ Info: worker 9 quit, returned result: 42
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:97
-┌ Info: worker 10 quit, returned result: 42
-└ @ Main /Users/robert/src/julia/channels/chan1.jl:97
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:25
+┌ Info: worker[9] starting -> 0.000000 ms
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:25
+┌ Info: worker[10] starting -> 4.000000 ms
+└ @ Main /Users/robert/src/julia/juliaSnippets/channels/chan1.jl:25
