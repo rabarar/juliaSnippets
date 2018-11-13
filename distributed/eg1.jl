@@ -1,8 +1,8 @@
 using Distributed
 
-num_feeds = 25
+num_feeds = 50
 num_procs =  2
-proc_delay = 0.050
+proc_delay = 0.01
 
 
 for i in 1:num_procs
@@ -24,7 +24,8 @@ println("loading echo() everywhere")
 	@async while true
 		d = take!(c)
 		if d.quit == true
-			println("$(myid()) received quit, exitting")
+			println("$(myid()) received quit, exitting, closing channel")
+			close(c)
 			return
 		end
 		println("$(myid()) received $(d.n)")
@@ -54,7 +55,18 @@ while true
 	for i=1:num_feeds
 		chan = 1 + (i % size(x)[1])
 		println("sending value $(i) to $(chan)")
-		put!(x[chan], Ctrl(i, false))
+		try
+			if (i % 13 == 0)
+				put!(x[chan], Ctrl(i, true))
+			else
+				put!(x[chan], Ctrl(i, false))
+			end
+		catch e
+			if isa(e, InvalidStateException)
+				println("channel $(i) is closed, nothing sent")
+				deleteat!(x,chan)
+			end
+		end
 		sleep(proc_delay)
 	end
 	break
