@@ -5,7 +5,7 @@ using Logging
 
 export setLoggerFile, pool
  
-struct WorkerState
+mutable struct WorkerState
 	name::String
 	job_count::Int64
 	errors::Int64
@@ -80,7 +80,7 @@ function worker(ws::WorkerState, source::Channel{WorkPkg{T}}, sink::Channel{Work
 	if isready(done.q)
 		_ = take!(done.q)
     		@info(@sprintf("worker [%s] ending \n", ws.name))
-		return 42
+		return ws
 	end
 
 	if isready(source)
@@ -89,6 +89,7 @@ function worker(ws::WorkerState, source::Channel{WorkPkg{T}}, sink::Channel{Work
 		res = cb(data.work)
 		put!(sink, WorkPkg{E}(@sprintf("%s-processed", data.name), res))
 		@info(@sprintf("Worker[%s] sent [%s] to sink\n", ws.name, data.name))
+		ws.job_count += 1
     	end
 
 	sleep(done.t)
@@ -156,9 +157,9 @@ function shutdownPool(p::Pool)
 
 end
 
-function results(p::Pool)
+function getFinalState(p::Pool)
 	for i in 1:p.num_workers
-		@info(@sprintf("worker %d quit, returned result: %d\n", i, p.ta[i].result))
+		@info(@sprintf("worker %s quit, count, error results: %d, %d\n", p.ta[i].result.name, p.ta[i].result.job_count, p.ta[i].result.errors))
 	end
 end
 
