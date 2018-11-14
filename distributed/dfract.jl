@@ -4,8 +4,8 @@ using FileIO
 
 
 # calculate a distributed fractal
-height = 1000
-width = 2000
+height = 2000
+width = 4000
 
 rmin = -2.5
 rmax = 1.5
@@ -13,7 +13,7 @@ rmax = 1.5
 imin = -1.25
 imax = 1.25
 
-iter = 80
+iter = 1000
 
 num_procs =  2
 
@@ -25,8 +25,16 @@ for i in 1:num_procs
 		 tunnel=false,
 		 sshflags=sshflags,
 		 max_parallel=10,
-		 dir="/Users/robert/src/julia/juliaSnippets//distributed",
+		 dir="/Users/robert/tmp",
 		 topology=:all_to_all)
+
+	addprocs(["robert@192.168.1.158"];
+		 tunnel=false,
+		 sshflags=sshflags,
+		 max_parallel=10,
+		 dir="/Users/robert/tmp",
+		 topology=:all_to_all)
+
 end
 
 # define mandel everywhere

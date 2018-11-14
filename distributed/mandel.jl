@@ -2,11 +2,11 @@ function mandelbrot_set(rmin,rmax,imin,imax,width,height,maxiter)
 
     cartesian =  Array{Float64, 3}(undef, 3, height, width)   
     println("start computing pmap")
-    zset =pmap(c->mandel(c,maxiter), [Complex(r,i) for r in LinRange(rmin ,rmax , width) for i in LinRange(imin, imax, height)]) 
+    zset =pmap(c->mandel(c,maxiter), distributed=true, batch_size=1000, [Complex(r,i) for r in LinRange(rmin ,rmax , width) for i in LinRange(imin, imax, height)]) 
 
     println("color zset")
     for y = 1:height, x = 1:width
-        #index = x + (((y-1) % height))*width
+
         index = y + (((x-1) % width))*height
 	point = zset[index]
 	if point == maxiter
