@@ -1,5 +1,7 @@
 *.jl.cov
 *.jl.*.cov
 *.jl.mem
+*.jpg
+*.bin
 deps/deps.jl
 distributed/ms-key*
