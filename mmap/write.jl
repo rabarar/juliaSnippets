@@ -5,8 +5,8 @@ rmax = 2.50
 imin = -1.5
 imax = 1.5
 
-height = 2000
-width = 4000
+height = 200_000
+width = 400_000
 
 tStart=time()
 cset= [ComplexF64(r,i) for r in LinRange(rmin ,rmax , width) for i in LinRange(imin, imax, height)]

@@ -5,3 +5,4 @@
 *.bin
 deps/deps.jl
 distributed/ms-key*
+distributed/*.jpg
